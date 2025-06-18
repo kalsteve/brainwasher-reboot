@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
 import logging
 
-from .config.health import checker
-from .routers import api
+from config.health import checker
+from routers import api
 
 # FastAPI를 실행하기 위해 인스턴스 생성
 
