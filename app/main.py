@@ -1,4 +1,4 @@
-import app.config.envSetting # 환경 변수를 가져오기 위한 설정
+import config.envSetting # 환경 변수를 가져오기 위한 설정
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from prometheus_fastapi_instrumentator import Instrumentator
