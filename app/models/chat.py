@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Float
 from sqlalchemy.orm import relationship
 
-from ..database.session import Base
+from .database.session import Base
 
 
 class Chat(Base):
