@@ -1,4 +1,5 @@
-from app.config.aws.secret import get_secret
+from aws.secret import get_secret
+import dotenv
 import os
 
 
@@ -17,5 +18,13 @@ def set_environment_by_secret_manager() -> None:
         if v is not None:
             os.environ[k] = v
 
+def set_environment_by_dotenv() -> None:
+    """
+    .env 파일에서 환경변수를 설정한다.
+    :rtype: None
+    """
+    dotenv.load_dotenv(override=True)
 
-set_environment_by_secret_manager()
+
+# set_environment_by_secret_manager()
+# set_environment_by_dotenv()
