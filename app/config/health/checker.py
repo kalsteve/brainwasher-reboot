@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, status
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from app.database.session import get_db
-from app.models.chat import Chat
+from .database.session import get_db
+from .models.chat import Chat
 
 router = APIRouter(
     prefix="/healthcheck",
