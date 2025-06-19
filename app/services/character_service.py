@@ -3,7 +3,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from services import image_service, voice_service, chat_service
-from models.models.chat import Chat
+from models.chat import Chat
 from models.character import Character
 from schemas.character import CharacterDetail
 from schemas.dashboard import SpicyFrequency, TopicFrequency, DashboardTotal, CharacterStats, DashboardCharacter, \
