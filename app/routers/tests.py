@@ -6,13 +6,13 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from starlette.responses import StreamingResponse
 
-from app.config.elevenlabs.text_to_speech_stream import text_to_speech_stream
-from app.config.redis.config import Config
-from app.database.session import get_db
-from app.models import Chat
-from app.schemas.response import ResultResponseModel
-from app.schemas.voice import VoiceCreateRequest
-from app.services import bubble_service, voice_service, chat_service
+from config.elevenlabs.text_to_speech_stream import text_to_speech_stream
+from config.redis.config import Config
+from database.session import get_db
+from models import Chat
+from schemas.response import ResultResponseModel
+from schemas.voice import VoiceCreateRequest
+from services import bubble_service, voice_service, chat_service
 
 router = APIRouter(
     prefix="/tests",

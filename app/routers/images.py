@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Form
 from sqlalchemy.orm import Session
-from app.database.session import get_db
-from ..schemas.response import ResultResponseModel
-from ..services import image_service, chat_service, bubble_service
-from app.config.aws.s3Client import upload_image
-from app.schemas.image import ImageBase, ImageBaseList, ImageDetailList
+from database.session import get_db
+from schemas.response import ResultResponseModel
+from services import image_service, chat_service, bubble_service
+from config.aws.s3Client import upload_image
+from schemas.image import ImageBase, ImageBaseList, ImageDetailList
 from fastapi import File, UploadFile
 
 router = APIRouter(

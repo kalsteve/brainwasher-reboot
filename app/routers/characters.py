@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from app.database.session import get_db
-from app.schemas.character import CharacterList
-from app.schemas.response import ResultResponseModel
-from app.services import character_service
+from database.session import get_db
+from schemas.character import CharacterList
+from schemas.response import ResultResponseModel
+from services import character_service
 
 router = APIRouter(
     prefix="/characters",

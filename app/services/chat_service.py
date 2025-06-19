@@ -1,16 +1,16 @@
 from fastapi import HTTPException
 from sqlalchemy import func
 
-from app.config.langChain.langChainSetting import topic_chain, spicy_chain
-from app.models import Character
-from app.models.chat import Chat
+from config.langChain.langChainSetting import topic_chain, spicy_chain
+from models import Character
+from models.chat import Chat
 from sqlalchemy.orm import Session
-from app.models.voice import Voice
-from app.models.image import Image
-from app.schemas.bubble import ChatBubble, ChatBubbleList
-from app.schemas.chat import ChatRoomBase
-from app.models.bubble import Bubble
-from app.services import bubble_service
+from models.voice import Voice
+from models.image import Image
+from schemas.bubble import ChatBubble, ChatBubbleList
+from schemas.chat import ChatRoomBase
+from models.bubble import Bubble
+from services import bubble_service
 
 
 # 채팅방 조회

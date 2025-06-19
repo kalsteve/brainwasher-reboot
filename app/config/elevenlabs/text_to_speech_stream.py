@@ -1,10 +1,10 @@
 from io import BytesIO
-from typing import IO, Generator, Iterator, AsyncIterator
+from typing import IO
 
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs, AsyncElevenLabs
 from anyio import open_file
-import os
+
 
 
 client = ElevenLabs()

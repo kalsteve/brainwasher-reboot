@@ -2,12 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from io import BytesIO
 
-from ..database.session import get_db
-from ..services import voice_service, chat_service, bubble_service
-from ..schemas.response import ResultResponseModel
-from app.config.aws.s3Client import upload_voice
+from database.session import get_db
+from services import voice_service, chat_service, bubble_service
+from schemas.response import ResultResponseModel
+from config.aws.s3Client import upload_voice
 
-from app.schemas.voice import VoiceDetail, VoiceDetailList
+from schemas.voice import VoiceDetail, VoiceDetailList
 
 router = APIRouter(
     prefix="/voices",

@@ -1,14 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from ..models import Bubble
-from ..schemas.response import ResultResponseModel
-from ..services import chat_service
-from ..database.session import get_db
-from ..schemas.bubble import BubbleRequest
-from ..schemas.chat import ChatRoomCreateRequest
-from ..services import character_service
-from ..services import bubble_service
+from schemas.response import ResultResponseModel
+from services import chat_service
+from database.session import get_db
+from schemas.bubble import BubbleRequest
+from schemas.chat import ChatRoomCreateRequest
+from services import character_service
+from services import bubble_service
 from fastapi.responses import StreamingResponse
 
 router = APIRouter(

@@ -2,12 +2,12 @@ from fastapi import HTTPException
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
-from app.config.aws.s3Client import list_images_in_directory
-from app.models import Bubble, Character, Chat
-from app.models.image import Image
-from app.schemas.image import ImageDetail
-from app.models.image import Image as ImageModel
-from app.services import character_service
+from config.aws.s3Client import list_images_in_directory
+from models import Bubble, Character, Chat
+from models.image import Image
+from schemas.image import ImageDetail
+from models.image import Image as ImageModel
+from services import character_service
 
 
 # 저장된 모든 발췌 이미지 목록 조회

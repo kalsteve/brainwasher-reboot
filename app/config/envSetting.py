@@ -1,4 +1,4 @@
-from .aws.secret import get_secret
+from config.aws.secret import get_secret
 import dotenv
 import os
 

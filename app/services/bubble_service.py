@@ -7,12 +7,12 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from app.config.langChain.langChainSetting import runnable_with_history
-from app.config.redis.config import Config
-from app.models import Bubble
+from config.langChain.langChainSetting import runnable_with_history
+from config.redis.config import Config
+from models import Bubble
 
-from app.config.elevenlabs.text_to_speech_stream import tts_stream
-from app.services import chat_service, character_service
+from config.elevenlabs.text_to_speech_stream import tts_stream
+from services import chat_service, character_service
 
 
 # 채팅 내용 조회

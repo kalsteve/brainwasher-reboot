@@ -2,12 +2,12 @@ from fastapi import HTTPException
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
-from app.models import Character, Chat
-from app.models.bubble import Bubble
-from app.models.voice import Voice
-from app.schemas.voice import VoiceDetail
-from app.config.redis.config import Config
-from app.services import bubble_service
+from models import Character, Chat
+from models.bubble import Bubble
+from models.voice import Voice
+from schemas.voice import VoiceDetail
+from config.redis.config import Config
+from services import bubble_service
 
 redis_client = Config.get_redis_client()
 

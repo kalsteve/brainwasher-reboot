@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from . import chats, voices, images, tests, characters
+from routers import chats, voices, images, tests, characters
 
 router = APIRouter(
     prefix="/api/v1"

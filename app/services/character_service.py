@@ -1,14 +1,12 @@
-from typing import List
-
 from fastapi import HTTPException
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from . import image_service, voice_service, chat_service
-from ..models import Chat
-from ..models.character import Character
-from ..schemas.character import CharacterDetail
-from ..schemas.dashboard import SpicyFrequency, TopicFrequency, DashboardTotal, CharacterStats, DashboardCharacter, \
+from services import image_service, voice_service, chat_service
+from models.models.chat import Chat
+from models.character import Character
+from schemas.character import CharacterDetail
+from schemas.dashboard import SpicyFrequency, TopicFrequency, DashboardTotal, CharacterStats, DashboardCharacter, \
     CharacterInfo, ImageInfo, VoiceInfo
 
 
