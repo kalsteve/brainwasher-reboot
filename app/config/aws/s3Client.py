@@ -51,7 +51,7 @@ async def upload_image(file, image_type: str = 'jpeg'):  # 이미지 파일을 �
     - S3 버킷은 폴더 구조로 되어 있기 때문에 /를 사용하여 폴더 안에 넣을 수 있다.
     """
 
-    return f'https://{bucket_name}.s3.ap-northeast-2.amazonaws.com/{object_name}'
+    return f'https://s3-api.yukey.site/{bucket_name}/{object_name}'
 
 
 async def upload_voice(file):
@@ -87,7 +87,7 @@ async def upload_voice(file):
     object name은 업로드된 객체명을 의미한다.
     - S3 버킷은 폴더 구조로 되어 있기 때문에 /를 사용하여 폴더 안에 넣을 수 있다.
     """
-    return f'https://{bucket_name}.s3.ap-northeast-2.amazonaws.com/{object_name}'
+    return f'https://s3-api.yukey.site/{bucket_name}/{object_name}'
 
 
 # 디렉토리에서 이미지 가져오는 함수
@@ -121,7 +121,7 @@ def list_images_in_directory(character_name: str):
     for obj in response['Contents']:
         key = obj['Key']
         if key.endswith(('jpeg', 'jpg', 'png', 'gif', 'bmp', 'webp')):  # 이미지 확장자 체크
-            image_url = f'https://{bucket_name}.s3.ap-northeast-2.amazonaws.com/{key}'
+            image_url = f'https://s3-api.yukey.site/{bucket_name}/{key}'
             image_urls.append(image_url)
 
     return image_urls
