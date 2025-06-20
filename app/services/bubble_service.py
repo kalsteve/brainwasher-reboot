@@ -8,7 +8,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from config.langChain.langChainSetting import runnable_with_history
-from config.redis.config import Config
+from config.redis.config import get_redis_client
 from models import Bubble
 
 from config.elevenlabs.text_to_speech_stream import tts_stream
@@ -117,7 +117,7 @@ async def create_bubble(chat_id: int, content: str, db: Session):
 
     # getvalue() 메서드는 BytesIO 객체에서 현재까지 읽은 데이터를 바이트열(bytes)로 반환
     audio_data_bytes = audio_data.getvalue()
-    redis_client = Config.get_redis_client()
+    redis_client = get_redis_client()
 
     # Redis에 오디오 데이터 저장
     redis_client.setex(str(db_bubble_ai.id), timedelta(seconds=600), audio_data_bytes)  # 생성과 동시에 10초뒤에 사라짐
