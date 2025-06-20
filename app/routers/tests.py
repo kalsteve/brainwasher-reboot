@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from starlette.responses import StreamingResponse
 
 from config.elevenlabs.text_to_speech_stream import text_to_speech_stream
-from config.redis.config import Config
+from config.redis.config import get_redis_client
 from database.session import get_db
 from models import Chat
 from schemas.response import ResultResponseModel
@@ -51,7 +51,7 @@ async def create_tts_stream(bubble_id: int, db: Session = Depends(get_db)):
     audio_key = f"{bubble_id}"
     # getvalue() 메서드는 BytesIO 객체에서 현재까지 읽은 데이터를 바이트열(bytes)로 반환
     audio_data_bytes = audio_data.getvalue()
-    redis_client = Config.get_redis_client()
+    redis_client = get_redis_client()
     # Redis에 오디오 데이터 저장
     redis_client.setex(audio_key, timedelta(seconds=600), audio_data_bytes)  # 생성과 동시에 10초뒤에 사라짐
     return ResultResponseModel(code=200, message="목소리가 Redis에 임시저장되었습니다.", data={"key": audio_key})
