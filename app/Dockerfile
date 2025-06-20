@@ -15,6 +15,7 @@ ENV TZ="Asia/Seoul"
 #    rm -rf awscliv2.zip aws
 
 # 필요한 패키지 설치
+RUN pip install --upgrade pip
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
