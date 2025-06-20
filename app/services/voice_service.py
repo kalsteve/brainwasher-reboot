@@ -6,10 +6,10 @@ from models import Character, Chat
 from models.bubble import Bubble
 from models.voice import Voice
 from schemas.voice import VoiceDetail
-from config.redis.config import Config
+from config.redis.config import get_redis_client
 from services import bubble_service
 
-redis_client = Config.get_redis_client()
+redis_client = get_redis_client()
 
 
 # 저장된 모든 목소리 목록 조회
