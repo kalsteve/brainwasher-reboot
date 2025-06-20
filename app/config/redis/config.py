@@ -1,16 +1,14 @@
-import redis
+import redis, os
 
-class Config:
-    REDIS_HOST = 'redis'
-    REDIS_PORT = 6379
-    REDIS_PASSWORD = None
-    REDIS_DB = 0
+def get_redis_client():
+    host = os.environ.get('REDIS_HOST')
+    port = os.environ.get('REDIS_PORT')
+    password = os.environ.get('REDIS_PASSWORD')
+    db = os.environ.get('REDIS_DB')  # 기본값을 0으로 설정
 
-    @staticmethod
-    def get_redis_client():
-        return redis.StrictRedis(
-            host=Config.REDIS_HOST,
-            port=Config.REDIS_PORT,
-            password=Config.REDIS_PASSWORD,
-            db=Config.REDIS_DB
-        )
+    return redis.StrictRedis(
+        host=host,
+        port=int(port),
+        password=password,
+        db=int(db)
+    )
