@@ -3,6 +3,7 @@ import aioboto3
 import uuid  # uuid4를 사용하여 파일명을 생성한다. 중복을 방지하기 위해서이다.
 
 import boto3
+from botocore.config import Config
 from botocore.exceptions import ClientError
 from fastapi import HTTPException
 
@@ -29,7 +30,13 @@ async def upload_image(file, image_type: str = 'jpeg'):  # 이미지 파일을 �
 
     # Create an S3 client
     session = aioboto3.Session()
-    async with session.client('s3') as s3_client:
+    async with session.client(
+    "s3",
+    endpoint_url="https://s3-api.yukey.site",    # MinIO URL
+    config=Config(
+        signature_version="s3v4",
+        s3={"addressing_style": "path"}          # ← 중요
+    ),) as s3_client:
         try:
             await s3_client.upload_fileobj(
                 file.file,
@@ -65,7 +72,13 @@ async def upload_voice(file):
 
     # Create an S3 client
     session = aioboto3.Session()
-    async with session.client('s3') as s3_client:
+    async with session.client('s3',
+    endpoint_url="https://s3-api.yukey.site",  # MinIO URL
+    config=Config(
+    signature_version="s3v4",
+    s3={"addressing_style": "path"}  # ← 중요
+    ),
+    ) as s3_client:
         try:
             await s3_client.upload_fileobj(
                 file,
@@ -101,7 +114,14 @@ def list_images_in_directory(character_name: str):
     prefix = f"characters/{character_name}/"  # 디렉토리 경로: 캐릭터 명
 
     # Create an S3 client
-    s3_client = boto3.client('s3')
+    s3_client = boto3.client(
+    "s3",
+    endpoint_url="https://s3-api.yukey.site",    # MinIO URL
+    config=Config(
+        signature_version="s3v4",
+        s3={"addressing_style": "path"}          # ← 중요
+    ),
+    )
 
     try:
         response = s3_client.list_objects_v2(
