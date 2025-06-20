@@ -22,7 +22,7 @@ dataclasses-json==0.6.7
 decorator==5.1.1
 distro==1.9.0
 dnspython==2.6.1
-elevenlabs==1.0.5
+elevenlabs==2.0.4
 email_validator==2.2.0
 exceptiongroup==1.2.1
 executing==2.0.1
