@@ -12,8 +12,8 @@ class Bubble(Base):
     is_deleted = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime, nullable=False, default=datetime.now)
     updated_at = Column(DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
-    writer = Column(Boolean, nullable=False, server_default="0")  # AI (0) or User (1)
-    category = Column(Boolean, nullable=False, server_default="0")  # Image (0) or Text (1)
+    writer = Column(Boolean, nullable=False, default=False, server_default="0")  # AI (0) or User (1)
+    category = Column(Boolean, nullable=False, default=False, server_default="0")  # Image (0) or Text (1)
     content = Column(Text, nullable=False)
 
     chat = relationship("Chat", back_populates="bubbles")
